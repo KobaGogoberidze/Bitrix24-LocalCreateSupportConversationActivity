@@ -1,4 +1,4 @@
-<?
+<?php
 $MESS["LOCAL_CSC_CONVERSATION_TITLE_FIELD"] = "Conversation title";
 $MESS["LOCAL_CSC_AUTO_MESSAGE_FIELD"] = "Auto message";
 $MESS["LOCAL_CSC_SUPPORT_USER_FIELD"] = "Support";

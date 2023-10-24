@@ -1,4 +1,4 @@
-<?
+<?php
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
     die();
@@ -11,6 +11,7 @@ use Bitrix\Main\ErrorCollection;
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Im\V2\Chat\ChatFactory;
 use Bitrix\ImOpenLines\Chat as OpenLinesChat;
+use Bitrix\Bizproc\Activity\PropertiesDialog;
 
 class CBPLocalCreateSupportConversationActivity extends CBPActivity
 {
@@ -108,7 +109,6 @@ class CBPLocalCreateSupportConversationActivity extends CBPActivity
      * Create private chat
      * 
      * @param string $userId
-     * 
      * @return Int
      */
     protected function createPrivateChat($userId, $title)
@@ -135,7 +135,6 @@ class CBPLocalCreateSupportConversationActivity extends CBPActivity
      * Create openline chat
      * 
      * @param string $userId
-     * 
      * @return Int
      */
     protected function createOpenlineChat($connectorUserId, $connectorChatId, $title)
@@ -174,7 +173,7 @@ class CBPLocalCreateSupportConversationActivity extends CBPActivity
      */
     public static function GetPropertiesDialog($documentType, $activityName, $workflowTemplate, $workflowParameters, $workflowVariables, $currentValues = null, $formName = "", $popupWindow = null, $siteId = "")
     {
-        $dialog = new \Bitrix\Bizproc\Activity\PropertiesDialog(__FILE__, [
+        $dialog = new PropertiesDialog(__FILE__, [
             "documentType" => $documentType,
             "activityName" => $activityName,
             "workflowTemplate" => $workflowTemplate,
@@ -204,7 +203,7 @@ class CBPLocalCreateSupportConversationActivity extends CBPActivity
     public static function GetPropertiesDialogValues($documentType, $activityName, &$workflowTemplate, &$workflowParameters, &$workflowVariables, $currentValues, &$errors)
     {
         $documentService = CBPRuntime::GetRuntime(true)->getDocumentService();
-        $dialog = new \Bitrix\Bizproc\Activity\PropertiesDialog(__FILE__, [
+        $dialog = new PropertiesDialog(__FILE__, [
             "documentType" => $documentType,
             "activityName" => $activityName,
             "workflowTemplate" => $workflowTemplate,
